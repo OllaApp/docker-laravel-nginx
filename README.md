@@ -3,7 +3,18 @@ An image to serve a laravel app with nginx
 
 ### How to use
 
-- Mount your Laravel app in `/var/www/html/`
-- Expose the port `80`
+Extend this image with a Dockerfile
 
-`docker run -d -p 8080:80 -v /path/to/laravel:/var/www/html ollaapp/laravel-nginx`
+- Copy your laravel app to `/var/www/html`
+- Run composer install
+
+```Dockerfile
+FROM ollaapp/laravel-nginx
+
+COPY ./my-laravel-app /var/www/html
+
+RUN composer install && \
+    chown -R www-data/www-data /var/www/html
+```
+
+Nginx is served on the port `80`
