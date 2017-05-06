@@ -35,7 +35,7 @@ COPY ./conf/laravel.ini /usr/local/etc/php/conf.d
 COPY ./conf/laravel.pool.conf /usr/local/etc/php-fpm.d/
 COPY ./conf/nginx.conf /etc/nginx/nginx.conf
 COPY ./conf/default.conf /etc/nginx/conf.d/default.conf
-COPY ./conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY ./conf/supervisord.conf /etc/supervisor/supervisord.conf
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
